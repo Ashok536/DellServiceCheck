@@ -1,0 +1,45 @@
+::ng-deep .mat-toolbar {
+    min-height: 52px;
+}
+
+::ng-deep .mat-toolbar-row{
+    height: 52px;
+}
+
+.align_center{
+    margin: 0 auto;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+    padding:12px;
+    width:400px;
+    background: white;
+    border-radius: 3px;
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.1);
+}
+
+.example-radio-group {
+    /* display: inline-flex;
+    flex-direction: row; */
+    margin: 10px 0px;
+}
+
+.example-radio-button {
+    margin: 10px;
+}
+
+.date_row{
+    width: 47% !important;
+}
+
+.btn_search{
+    background-color: #1273bc;
+    color:white;
+    width:50px
+}
+
+.example-selected-value {
+    margin: 15px 0;
+}

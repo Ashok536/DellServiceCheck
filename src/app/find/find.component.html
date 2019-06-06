@@ -1,0 +1,42 @@
+<div style="background:#fffefc;padding: 10px;">
+  <div class="example-container align_center">
+    
+    <mat-form-field>
+      <mat-select placeholder="Select Type of ID" required [(ngModel)]="tpyeofID">
+        <mat-option *ngFor="let type of types" [value]="type.value">
+          {{ type.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <mat-form-field >
+      <input matInput placeholder="Search by ID" required [(ngModel)]="idNum">
+    </mat-form-field>
+  
+    <div style="display: inline-flex;flex-direction: row">
+      <mat-form-field class="date_row">
+        <input matInput [matDatepicker]="picker" placeholder="From date" required [(ngModel)]="fromDate" (click)='picker.open()'>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="date_row" style="margin-left:20px">
+          <input matInput [matDatepicker]="picker1" placeholder="To date" [(ngModel)]="toDate" (click)='picker1.open()' required>
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </div>
+  
+    <div >
+      <p id="example-radio-group-label">Environment *</p>  
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="environment" required>
+        <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
+          {{season}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+  
+    <button mat-button type="submit" [disabled]='!environment || !toDate || !fromDate || !tpyeofID || !idNum' class="btn_search" (click)="show()">Search</button>
+  </div>
+</div>
+
+<app-grid *ngIf='showGrid'></app-grid>
