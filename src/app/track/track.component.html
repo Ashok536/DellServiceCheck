@@ -1,18 +1,39 @@
+<div style="display: flex">
 
-<div style="display: flex;">
-  <div title="Started Succesfully" style="height: 40px;width: 40px;border-radius: 50%;background:greenyellow">
+  <div style="display: inline-flex;flex-direction: row" *ngFor="let data of data.datasource;let i = index">
+    <div class="tooltip serv" [style.background-color]="data.name?'greenyellow':'red'" >
+    <span class="tooltiptext">{{data.name}}</span></div>
+    <mat-progress-bar *ngIf="i!=length-1" class="progressbar" mode="determinate" value="100"></mat-progress-bar>
   </div>
-
-  <mat-progress-bar style="width:15%;align-self: center;" mode="determinate" value="100"></mat-progress-bar>
-
-  <div title="Process Succesfully" style="height: 40px;width: 40px;border-radius: 50%;background:greenyellow">
-  </div>
-
-  <mat-progress-bar style="width:15%;align-self: center;" mode="determinate" value="100"></mat-progress-bar>
-
-  <div title="Succesfully runned and Stopped" style="height: 40px;width: 40px;border-radius: 50%;background:greenyellow">
-  </div>
-
 </div>
 
-<p>{{data.datasource.name}}</p>
+<p>{{data.datasource[0].name}}</p>
+
+
+<!-- <div style="display: flex;flex-direction: row;">
+  <div *ngFor="let data of data.datasource;let i = index" style="display:inline-flex">
+    <div class="rfirst" *ngIf="i%2==0">
+      <p style="background-color: greenyellow;height: 20px;width: 20px;border-radius: 50%;margin-left:40px;"></p>
+    </div>
+    <div class="rsecond " *ngIf="i%2!=0">
+      <p style="background-color: greenyellow;height: 20px;width: 20px;border-radius: 50%;margin-left: -10px;"></p>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<!-- <div title="Process Succesfully" style="height: 40px;width: 40px;border-radius: 50%;background:greenyellow">
+</div>
+
+<mat-progress-bar style="width:15%;align-self: center;" mode="determinate" value="100"></mat-progress-bar>
+
+<div title="Succesfully runned and Stopped" style="height: 40px;width: 40px;border-radius: 50%;background:greenyellow">
+</div> -->
+
+
+<!-- <div class="first ">
+
+</div>
+<div class="second "> -->

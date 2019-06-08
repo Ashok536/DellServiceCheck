@@ -6,6 +6,24 @@
     height: 52px;
 }
 
+.maindiv{
+    background:#fffefc;
+    padding-top:10px;
+    display: flex
+}
+
+._htxt{
+    font-size: 16px;
+    font-weight: 600;
+    color: #1273bc;
+    padding-left: 15px;
+    padding-top: 18px;
+    height: 35px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    margin: 0px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #afb7bd;
+}
 .align_center{
     margin: 0 auto;
 }
@@ -13,33 +31,93 @@
 .example-container {
     display: flex;
     flex-direction: column;
-    padding:12px;
+    padding-bottom: 10px;
     width:400px;
     background: white;
     border-radius: 3px;
+    margin-left: 10px;
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.1);
 }
 
+.commonmargin{
+    margin:0 20px;
+}
+
 .example-radio-group {
-    /* display: inline-flex;
-    flex-direction: row; */
     margin: 10px 0px;
 }
 
 .example-radio-button {
     margin: 10px;
+    font-size: 14px;
 }
 
 .date_row{
     width: 47% !important;
 }
 
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: #1273bc;
+}
+
+::ng-deep .mat-radio-outer-circle {
+    border-color: #1273bc;
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle {
+    background-color: #1273bc;
+}
+
 .btn_search{
     background-color: #1273bc;
     color:white;
-    width:50px
+    width:50px;
+    align-self: center;
 }
 
 .example-selected-value {
     margin: 15px 0;
+}
+
+.example-container1 {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    min-width: 300px;
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.dmat_header_row{
+    background-color: #1273bc;
+}
+
+.mat-cell, .mat-header-cell {
+    text-align: center;
+}
+
+::ng-deep .mat-header-cell{
+    color: white !important;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 100%;
+}
+
+.btn_icon{
+    outline: none;
+    border-radius: 2px;
+    height: 33px;
+    width: 34px;
+    line-height: 8px;
+    border: none;
+    padding: 0;
+}
+
+._chartset{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
 }

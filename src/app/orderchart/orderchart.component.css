@@ -1,0 +1,47 @@
+._arricon{
+    font-size: 15px;
+    width:24px;
+}
+
+.mainhd{
+    font-size: 21px;
+    text-align: center;
+    font-weight: 600;
+    color: #1273bc;
+    height: 32px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+._ordertypeshd{
+    padding-left:15px;
+    display:inline-flex;
+    flex-direction: row;
+}
+
+._box{
+    margin-right: 15px;
+}
+
+._boxborder{
+    border-right:1px solid #16b3e2;
+}
+
+._arrup{
+    color: #2ae42a;
+    cursor: pointer;
+}
+
+._arrdown{
+    color: #f50a0a;
+    cursor: pointer;
+}
+
+._arrprocess{
+    color: #f5bc55;
+    cursor: pointer;
+}
+
+._chartAlign{
+    margin: 0 auto;
+    margin-top:20px;
+}

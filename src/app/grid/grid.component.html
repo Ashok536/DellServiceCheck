@@ -1,4 +1,8 @@
-<button type="button" class="btn_icon"> <mat-icon>email</mat-icon></button>
+<div>
+  <button mat-raised-button type="button" > <mat-icon>email</mat-icon></button>
+  <button mat-raised-button (click)="openDialog()">Track Map</button>
+</div>
+
 <div class="example-container mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource">
   
@@ -6,35 +10,60 @@
             The actual rendered columns are set as a property on the row definition" -->
   
       <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+      <ng-container matColumnDef="CORRELATION_ID">
+        <mat-header-cell *matHeaderCellDef> CORRELATION_ID </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
       </ng-container>
   
       <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <ng-container matColumnDef="SERVICE_NAME">
+        <mat-header-cell *matHeaderCellDef> SERVICE_NAME </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
       </ng-container>
   
       <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+      <ng-container matColumnDef="CLIENT_ID">
+        <mat-header-cell *matHeaderCellDef> CLIENT_ID </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
       </ng-container>
   
       <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+      <ng-container matColumnDef="START_TIME">
+        <mat-header-cell *matHeaderCellDef> START_TIME </mat-header-cell>
         <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="button">
-        <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
-        <mat-cell *matCellDef="let element">  <button mat-raised-button (click)="openDialog(element)">Track Map</button> </mat-cell>
+      <ng-container matColumnDef="END_TIME">
+        <mat-header-cell *matHeaderCellDef> END_TIME </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
       </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <ng-container matColumnDef="REQUEST">
+        <mat-header-cell *matHeaderCellDef> REQUEST </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="RESPONSE">
+        <mat-header-cell *matHeaderCellDef> RESPONSE </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="EXCEPTION_DETAIL">
+        <mat-header-cell *matHeaderCellDef> EXCEPTION_DETAIL </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="COUNTRY">
+        <mat-header-cell *matHeaderCellDef> COUNTRY </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="REGION">
+        <mat-header-cell *matHeaderCellDef> REGION </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns" class="dmat_header_row"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
   </div>

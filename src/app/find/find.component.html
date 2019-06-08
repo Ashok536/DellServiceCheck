@@ -1,7 +1,7 @@
-<div style="background:#fffefc;padding: 10px;">
-  <div class="example-container align_center">
-    
-    <mat-form-field>
+<div class="maindiv">
+  <div class="example-container">
+    <h3 class="_htxt">Order Map</h3>
+    <mat-form-field class="commonmargin">
       <mat-select placeholder="Select Type of ID" required [(ngModel)]="tpyeofID">
         <mat-option *ngFor="let type of types" [value]="type.value">
           {{ type.viewValue }}
@@ -9,24 +9,25 @@
       </mat-select>
     </mat-form-field>
   
-    <mat-form-field >
+    <mat-form-field class="commonmargin">
       <input matInput placeholder="Search by ID" required [(ngModel)]="idNum">
     </mat-form-field>
   
-    <div style="display: inline-flex;flex-direction: row">
+    <div class="commonmargin" style="display: inline-flex;flex-direction: row">
       <mat-form-field class="date_row">
         <input matInput [matDatepicker]="picker" placeholder="From date" required [(ngModel)]="fromDate" (click)='picker.open()'>
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-      <mat-form-field class="date_row" style="margin-left:20px">
-          <input matInput [matDatepicker]="picker1" placeholder="To date" [(ngModel)]="toDate" (click)='picker1.open()' required>
+      <mat-form-field class="date_row" style="margin-left:20px" >
+          <input matInput [matDatepicker]="picker1" [min]="fromDate"  [formControl]="date" placeholder="To date" [(ngModel)]="toDate" (click)='picker1.open()' required>
           <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
       </mat-form-field>
+      
     </div>
   
-    <div >
+    <div  class="commonmargin">
       <p id="example-radio-group-label">Environment *</p>  
       <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="environment" required>
         <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" [value]="season">
@@ -37,6 +38,85 @@
   
     <button mat-button type="submit" [disabled]='!environment || !toDate || !fromDate || !tpyeofID || !idNum' class="btn_search" (click)="show()">Search</button>
   </div>
+  <div  class="_chartset">
+    
+    <app-orderchart></app-orderchart>
+  </div>
 </div>
 
-<app-grid *ngIf='showGrid'></app-grid>
+<!-- <app-grid *ngIf='showGrid'></app-grid> -->
+<div *ngIf='showGrid' style="padding-top:18px">
+<div>
+  <button mat-raised-button type="button"> <mat-icon>email</mat-icon></button>
+  <button mat-raised-button (click)="openDialog()">Track Map</button>
+</div>
+
+<div class="example-container1 mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource">
+  
+      <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="CORRELATION_ID">
+        <mat-header-cell *matHeaderCellDef> CORRELATION_ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="SERVICE_NAME">
+        <mat-header-cell *matHeaderCellDef> SERVICE_NAME </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="CLIENT_ID">
+        <mat-header-cell *matHeaderCellDef> CLIENT_ID </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="START_TIME">
+        <mat-header-cell *matHeaderCellDef> START_TIME </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="END_TIME">
+        <mat-header-cell *matHeaderCellDef> END_TIME </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="REQUEST">
+        <mat-header-cell *matHeaderCellDef> REQUEST </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+          <mat-icon style="cursor: pointer" (click)="openreqDialog(element.symbol)">info</mat-icon>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="RESPONSE">
+        <mat-header-cell *matHeaderCellDef> RESPONSE </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+          <mat-icon style="cursor: pointer" (click)="openresDialog(element.symbol)">info</mat-icon> 
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="EXCEPTION_DETAIL">
+        <mat-header-cell *matHeaderCellDef> EXCEPTION_DETAIL </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="COUNTRY">
+        <mat-header-cell *matHeaderCellDef> COUNTRY </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="REGION">
+        <mat-header-cell *matHeaderCellDef> REGION </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns" class="dmat_header_row"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+</div>

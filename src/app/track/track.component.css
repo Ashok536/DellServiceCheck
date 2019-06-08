@@ -1,3 +1,81 @@
 ::ng-deep .mat-progress-bar-fill::after{
     background-color: #1273bc
 }
+
+.progressbar{
+    width:125px;
+    height:10px;
+    align-self: center;
+}
+
+.serv{
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    background-color: white;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0px 0px 7px 1px rgba(0,0,0,0.1);
+    padding: 10px;
+    margin-top: 30px;
+    position: absolute;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 5%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+.box {
+    width: 500px; 
+    height: 100px;  
+    border: solid 5px #000;
+    border-color: #000 transparent transparent transparent;
+    border-radius: 50%/100px 100px 0 0;
+}
+
+.first{
+    border-right: 1px solid goldenrod;
+    border-bottom: 1px solid goldenrod;
+    height: 60px;
+    width: 50px;
+}
+.second{
+    border-left: 1px solid goldenrod;
+    border-bottom: 1px solid goldenrod;
+    height: 60px;
+    width: 50px;
+}
+
+.rfirst{
+    border-top: 1px solid goldenrod;
+    border-right: 1px solid goldenrod;
+    height: 60px;
+    width: 50px;
+}
+
+.rsecond{
+    border-right: 1px solid goldenrod;
+    border-bottom: 1px solid goldenrod;
+    height: 60px;
+    width: 50px;
+}

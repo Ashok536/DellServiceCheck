@@ -11,6 +11,9 @@ import { MaterialModule } from './material/material.module';
 import { FindComponent } from './find/find.component';
 import { GridComponent } from './grid/grid.component';
 import { TrackComponent } from './track/track.component';
+import { ReqtemplateComponent } from './reqtemplate/reqtemplate.component';
+import { RestemplateComponent } from './restemplate/restemplate.component';
+import { OrderchartComponent } from './orderchart/orderchart.component';
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { TrackComponent } from './track/track.component';
     HomeComponent,
     FindComponent,
     GridComponent,
-    TrackComponent
+    TrackComponent,
+    ReqtemplateComponent,
+    RestemplateComponent,
+    OrderchartComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,9 @@ import { TrackComponent } from './track/track.component';
   providers: [],
   bootstrap: [AppComponent],
   entryComponents:[
-    TrackComponent
+    TrackComponent,
+    ReqtemplateComponent,
+    RestemplateComponent
   ]
 })
 export class AppModule { }

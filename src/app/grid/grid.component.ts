@@ -3,14 +3,14 @@ import { MatDialog } from '@angular/material';
 import { TrackComponent } from '../track/track.component';
 
 //Declarations
-export interface Element {
+export interface Element1 {
   name: string;
   position: number;
   weight: number;
   symbol: string;
 }
 
-const ELEMENT_DATA: Element[] = [
+const ELEMENT_DATA: Element1[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
   {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
@@ -39,23 +39,25 @@ const ELEMENT_DATA: Element[] = [
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnInit {
-  displayedColumns = ['position', 'name', 'weight', 'symbol','button'];
+
+  
+  displayedColumns = ['CORRELATION_ID', 'SERVICE_NAME', 'CLIENT_ID', 'START_TIME','END_TIME',
+  'REQUEST','RESPONSE','EXCEPTION_DETAIL','COUNTRY','REGION'];
   dataSource = ELEMENT_DATA;
   
-  animal: string;
-  name: string;
+  // animal: string;
+  // name: string;
 
   constructor(public dialog: MatDialog) {}
 
-  openDialog(ele: any): void {
+  openDialog(): void {
     const dialogRef = this.dialog.open(TrackComponent, {
-      width: '60%',
-      data: {datasource: ele}
+      width: '1000px',
+      data: {datasource: this.dataSource}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.animal = result;
     });
   }
 
